@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>timer = 0
 startfade = 0
+image_speed = 0
 </string>
           </argument>
         </arguments>
@@ -51,11 +52,14 @@ startfade = 0
             <kind>1</kind>
             <string>timer += 1
 if (timer == 50 || timer == 150 || timer == 250) startfade = 1
-if (timer == 75 || timer == 175 || timer == 275) startfade = 2
+if (timer == 75 || timer == 175 || timer == 275) {
+    startfade = 2
+    image_index += 1
+}
 if (timer == 100 || timer == 200 || timer == 300) startfade = 0
-if (startfade == 1 &amp;&amp; image_alpha != 0) image_alpha -= 0.06
-if (startfade == 2 &amp;&amp; image_alpha != 1) image_alpha += 0.06
-if (timer == 325) room_goto(room_endtext)
+if (startfade == 1 &amp;&amp; image_alpha &gt; 0) image_alpha -= 0.06
+if (startfade == 2 &amp;&amp; image_alpha &lt; 1) image_alpha += 0.06
+if (timer == 300) room_goto(room_endtext)
 draw_self()
 </string>
           </argument>
