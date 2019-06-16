@@ -1,1 +1,2 @@
-Configs/Default/
+/Configs/
+!/Configs/Default.config.gmx
